@@ -6,17 +6,17 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return jsonify({
-        "data" : data,
-        "message" : "success"
+        "data": data,
+        "message": "success"
     }), 200
 
-@app.route("/planet")
-def planet():
-    name = request.agrs.get("name")
-    planet_data = next(item for item in data if item["name"] == name)
+@app.route("/star")
+def star():
+    name = request.args.get("name")
+    star_name = next(item for item in data if item["name"] == name)
     return jsonify({
-        "data" : planet_data,
-        "message" : "success"
+        "data": star_name,
+        "message": "success"
     }), 200
 
 if __name__ == "__main__":
